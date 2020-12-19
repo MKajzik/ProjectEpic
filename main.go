@@ -3,66 +3,88 @@ package main
 import (
 	"bytes"
 	"encoding/json"
+	"errors"
 	"fmt"
 	"io/ioutil"
 	"net/http"
-	"os"
 	"time"
 
 	httpvalues "kazik/epic/darmowe/httpstructure"
 	struktura "kazik/epic/darmowe/pkg"
 )
 
-//DefaultSlackTimeout default
-const DefaultSlackTimeout = 10 * time.Second
+const (
+	slackTimeout time.Duration = 10 * time.Second
+	token        string        = "xoxb-245805981380-1581140089558-iH4W0EqnKHcxdG6VY9w535yD"
+)
 
 func main() {
 
-	jsonFile, err := os.Open("epic.json")
+	var webhookURL string = "https://hooks.slack.com/services/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"
+	var epicURL string = "https://store-site-backend-static.ak.epicgames.com/freeGamesPromotions?locale=pl&country=PL&allowCountries=PL"
+
+	freeGame, err := GetEpicFreeGame(epicURL)
 	if err != nil {
-		fmt.Println(err)
+		fmt.Println("Error in Function GetEpicFreeGame")
+		return
 	}
 
-	fmt.Println("Successfully Opened test.json")
+	SendSlackMessage(webhookURL, freeGame)
 
-	byteValue, _ := ioutil.ReadAll(jsonFile)
+}
 
-	defer jsonFile.Close()
+//SendSlackMessage exported
+func SendSlackMessage(webhookURL string, msg string) error {
 
-	var darmowe struktura.Darmowe
-
-	//err := json.Unmarshal(byteValue, &data)
-	if err := json.Unmarshal(byteValue, &darmowe); err != nil {
-		fmt.Println(err)
-	}
-
-	//var token string = "xoxb-245805981380-1581140089558-iH4W0EqnKHcxdG6VY9w535yD"
-
-	//fmt.Println(data.Data.Catalog.SearchStore.Elements[1].Title)
-
-	var freeGame string = "Darmowa gra w EpicGames Store: " + darmowe.Data.Catalog.SearchStore.Elements[1].Title
-
-	requestBody, err := json.Marshal(httpvalues.Values{Text: freeGame})
+	//Encode by Marshal message to json
+	requestBody, err := json.Marshal(httpvalues.Values{Text: msg})
 	if err != nil {
-		fmt.Println(err)
+		return err
 	}
 
-	req, err := http.NewRequest("POST", "https://hooks.slack.com/services/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", bytes.NewBuffer(requestBody))
+	//create new POST request and add Header
+	req, err := http.NewRequest(http.MethodPost, webhookURL, bytes.NewBuffer(requestBody))
+	if err != nil {
+		return err
+	}
 	req.Header.Add("Content-type", "application/json")
-	if err != nil {
-		fmt.Println(err)
-	}
 
 	//Send request
-	client := &http.Client{Timeout: DefaultSlackTimeout}
+	client := &http.Client{Timeout: slackTimeout}
 	resp, err := client.Do(req)
 	if err != nil {
-		fmt.Println(err)
+		return err
 	}
+	defer resp.Body.Close()
 
+	//read response and check errors
 	buf := new(bytes.Buffer)
 	buf.ReadFrom(resp.Body)
 	if buf.String() != "ok" {
-		fmt.Println(buf.String())
+		return errors.New("Non-ok response returned from Slack")
 	}
+	return nil
+}
+
+//GetEpicFreeGame export
+func GetEpicFreeGame(url string) (string, error) {
+
+	resp, err := http.Get(url)
+	if err != nil {
+		fmt.Println(err)
+		return "http.GET ERROR", err
+	}
+	defer resp.Body.Close()
+
+	byteValue, _ := ioutil.ReadAll(resp.Body)
+
+	var darmowe struktura.Darmowe
+
+	if err := json.Unmarshal(byteValue, &darmowe); err != nil {
+		fmt.Println(err)
+		return "json.Unmarshall ERROR", err
+	}
+
+	return darmowe.Data.Catalog.SearchStore.Elements[1].Title, nil
+
 }
