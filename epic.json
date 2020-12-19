@@ -1,1 +1,788 @@
-{"data":{"Catalog":{"searchStore":{"elements":[{"title":"Mystery Game","id":"29d8fec7c4ec4f30b9d3369597ffdd82","namespace":"d5241c76f178492ea1540fce45616757","description":"Mystery Game (December 19)","effectiveDate":"2099-01-01T00:00:00.000Z","keyImages":[{"type":"VaultClosed","url":"https://cdn1.epicgames.com/d5241c76f178492ea1540fce45616757/offer/EGS_HolidaySale2020_DoG_19_1920x1080_Teaser-1920x1080-e493e509459084b776acc190762fd3e6.jpg"}],"seller":{"id":"o-ufmrk5furrrxgsp5tdngefzt5rxdcn","name":"Epic Dev Test Account"},"productSlug":"[]","urlSlug":"december19mysterygame","url":null,"items":[{"id":"8341d7c7e4534db7848cc428aa4cbe5a","namespace":"d5241c76f178492ea1540fce45616757"}],"customAttributes":[{"key":"com.epicgames.app.freegames.vault.close","value":"[]"},{"key":"com.epicgames.app.freegames.vault.slug","value":"news/the-holiday-sale-returns-on-december-17-plus-15-free-games"},{"key":"com.epicgames.app.blacklist","value":"[]"},{"key":"publisherName","value":"[]"},{"key":"com.epicgames.app.freegames.vault.open","value":"[]"},{"key":"com.epicgames.app.productSlug","value":"[]"}],"categories":[{"path":"freegames/vaulted"},{"path":"freegames"},{"path":"games"},{"path":"applications"}],"tags":[],"price":{"totalPrice":{"discountPrice":0,"originalPrice":0,"voucherDiscount":0,"discount":0,"currencyCode":"PLN","currencyInfo":{"decimals":2},"fmtPrice":{"originalPrice":"0","discountPrice":"0","intermediatePrice":"0"}},"lineOffers":[{"appliedRules":[]}]},"promotions":{"promotionalOffers":[],"upcomingPromotionalOffers":[{"promotionalOffers":[{"startDate":"2020-12-19T16:00:00.000Z","endDate":"2020-12-20T16:00:00.000Z","discountSetting":{"discountType":"PERCENTAGE","discountPercentage":0}}]}]}},{"title":"Oddworld: New 'n' Tasty","id":"8fd1e71c6fc24e75b38d0f297bf3fef2","namespace":"d5241c76f178492ea1540fce45616757","description":"Oddworld: New 'n' Tasty","effectiveDate":"2099-01-01T00:00:00.000Z","keyImages":[{"type":"VaultClosed","url":"https://cdn1.epicgames.com/d5241c76f178492ea1540fce45616757/offer/EGS_HolidaySale2020_DoG_18_1920x1080_Teaser-1920x1080-fa363f9ed8c09db6576b993e27e02c8e.jpg"},{"type":"DieselStoreFrontWide","url":"https://cdn1.epicgames.com/d5241c76f178492ea1540fce45616757/offer/EGS_HolidaySale2020_DoG_Oddworld_1920x1080_Teaser-R-1920x1080-2ca053d0ab9e0f79645d9eaab8d477b6.jpg"}],"seller":{"id":"o-ufmrk5furrrxgsp5tdngefzt5rxdcn","name":"Epic Dev Test Account"},"productSlug":"oddworld-new-n-tasty","urlSlug":"december18mysterygame","url":null,"items":[{"id":"8341d7c7e4534db7848cc428aa4cbe5a","namespace":"d5241c76f178492ea1540fce45616757"}],"customAttributes":[{"key":"com.epicgames.app.freegames.vault.close","value":"[]"},{"key":"com.epicgames.app.freegames.vault.slug","value":"news/the-holiday-sale-returns-on-december-17-plus-15-free-games"},{"key":"com.epicgames.app.blacklist","value":"[]"},{"key":"publisherName","value":"Oddworld Inhabitants, Inc."},{"key":"com.epicgames.app.freegames.vault.open","value":"[]"},{"key":"developerName","value":"Just Add Water"},{"key":"com.epicgames.app.productSlug","value":"oddworld-new-n-tasty"}],"categories":[{"path":"freegames/vaulted"},{"path":"freegames"},{"path":"games"},{"path":"applications"}],"tags":[],"price":{"totalPrice":{"discountPrice":0,"originalPrice":0,"voucherDiscount":0,"discount":0,"currencyCode":"PLN","currencyInfo":{"decimals":2},"fmtPrice":{"originalPrice":"0","discountPrice":"0","intermediatePrice":"0"}},"lineOffers":[{"appliedRules":[]}]},"promotions":{"promotionalOffers":[{"promotionalOffers":[{"startDate":"2020-12-18T16:00:00.000Z","endDate":"2020-12-19T16:00:00.000Z","discountSetting":{"discountType":"PERCENTAGE","discountPercentage":0}}]}],"upcomingPromotionalOffers":[]}}],"paging":{"count":1000,"total":2}}}},"extensions":{"cacheControl":{"version":1,"hints":[{"path":["Catalog"],"maxAge":0},{"path":["Catalog","searchStore"],"maxAge":0},{"path":["Catalog","searchStore","elements"],"maxAge":0},{"path":["Catalog","searchStore","paging"],"maxAge":0},{"path":["Catalog","searchStore","elements",0,"keyImages"],"maxAge":0},{"path":["Catalog","searchStore","elements",0,"seller"],"maxAge":0},{"path":["Catalog","searchStore","elements",0,"items"],"maxAge":0},{"path":["Catalog","searchStore","elements",0,"customAttributes"],"maxAge":0},{"path":["Catalog","searchStore","elements",0,"categories"],"maxAge":0},{"path":["Catalog","searchStore","elements",0,"tags"],"maxAge":0},{"path":["Catalog","searchStore","elements",0,"price"],"maxAge":0},{"path":["Catalog","searchStore","elements",0,"promotions"],"maxAge":0},{"path":["Catalog","searchStore","elements",1,"keyImages"],"maxAge":0},{"path":["Catalog","searchStore","elements",1,"seller"],"maxAge":0},{"path":["Catalog","searchStore","elements",1,"items"],"maxAge":0},{"path":["Catalog","searchStore","elements",1,"customAttributes"],"maxAge":0},{"path":["Catalog","searchStore","elements",1,"categories"],"maxAge":0},{"path":["Catalog","searchStore","elements",1,"tags"],"maxAge":0},{"path":["Catalog","searchStore","elements",1,"price"],"maxAge":0},{"path":["Catalog","searchStore","elements",1,"promotions"],"maxAge":0},{"path":["Catalog","searchStore","elements",0,"price","totalPrice"],"maxAge":600,"scope":"PUBLIC"},{"path":["Catalog","searchStore","elements",0,"price","lineOffers"],"maxAge":600,"scope":"PUBLIC"},{"path":["Catalog","searchStore","elements",0,"price","totalPrice","discountPrice"],"maxAge":600,"scope":"PUBLIC"},{"path":["Catalog","searchStore","elements",0,"price","totalPrice","originalPrice"],"maxAge":600,"scope":"PUBLIC"},{"path":["Catalog","searchStore","elements",0,"price","totalPrice","voucherDiscount"],"maxAge":600,"scope":"PUBLIC"},{"path":["Catalog","searchStore","elements",0,"price","totalPrice","discount"],"maxAge":600,"scope":"PUBLIC"},{"path":["Catalog","searchStore","elements",0,"price","totalPrice","currencyCode"],"maxAge":600,"scope":"PUBLIC"},{"path":["Catalog","searchStore","elements",0,"price","totalPrice","currencyInfo"],"maxAge":600,"scope":"PUBLIC"},{"path":["Catalog","searchStore","elements",0,"price","totalPrice","fmtPrice"],"maxAge":600,"scope":"PUBLIC"},{"path":["Catalog","searchStore","elements",0,"price","lineOffers",0,"appliedRules"],"maxAge":600,"scope":"PUBLIC"},{"path":["Catalog","searchStore","elements",1,"price","totalPrice"],"maxAge":600,"scope":"PUBLIC"},{"path":["Catalog","searchStore","elements",1,"price","lineOffers"],"maxAge":600,"scope":"PUBLIC"},{"path":["Catalog","searchStore","elements",1,"price","totalPrice","discountPrice"],"maxAge":600,"scope":"PUBLIC"},{"path":["Catalog","searchStore","elements",1,"price","totalPrice","originalPrice"],"maxAge":600,"scope":"PUBLIC"},{"path":["Catalog","searchStore","elements",1,"price","totalPrice","voucherDiscount"],"maxAge":600,"scope":"PUBLIC"},{"path":["Catalog","searchStore","elements",1,"price","totalPrice","discount"],"maxAge":600,"scope":"PUBLIC"},{"path":["Catalog","searchStore","elements",1,"price","totalPrice","currencyCode"],"maxAge":600,"scope":"PUBLIC"},{"path":["Catalog","searchStore","elements",1,"price","totalPrice","currencyInfo"],"maxAge":600,"scope":"PUBLIC"},{"path":["Catalog","searchStore","elements",1,"price","totalPrice","fmtPrice"],"maxAge":600,"scope":"PUBLIC"},{"path":["Catalog","searchStore","elements",1,"price","lineOffers",0,"appliedRules"],"maxAge":600,"scope":"PUBLIC"},{"path":["Catalog","searchStore","elements",0,"promotions","promotionalOffers"],"maxAge":0},{"path":["Catalog","searchStore","elements",0,"promotions","upcomingPromotionalOffers"],"maxAge":0},{"path":["Catalog","searchStore","elements",1,"promotions","promotionalOffers"],"maxAge":0},{"path":["Catalog","searchStore","elements",1,"promotions","upcomingPromotionalOffers"],"maxAge":0},{"path":["Catalog","searchStore","elements",0,"promotions","upcomingPromotionalOffers",0,"promotionalOffers"],"maxAge":0},{"path":["Catalog","searchStore","elements",1,"promotions","promotionalOffers",0,"promotionalOffers"],"maxAge":0},{"path":["Catalog","searchStore","elements",0,"promotions","upcomingPromotionalOffers",0,"promotionalOffers",0,"discountSetting"],"maxAge":0},{"path":["Catalog","searchStore","elements",1,"promotions","promotionalOffers",0,"promotionalOffers",0,"discountSetting"],"maxAge":0}]}}}
+{
+    "data": {
+        "Catalog": {
+            "searchStore": {
+                "elements": [
+                    {
+                        "title": "Mystery Game",
+                        "id": "29d8fec7c4ec4f30b9d3369597ffdd82",
+                        "namespace": "d5241c76f178492ea1540fce45616757",
+                        "description": "Mystery Game (December 19)",
+                        "effectiveDate": "2099-01-01T00:00:00.000Z",
+                        "keyImages": [
+                            {
+                                "type": "VaultClosed",
+                                "url": "https://cdn1.epicgames.com/d5241c76f178492ea1540fce45616757/offer/EGS_HolidaySale2020_DoG_19_1920x1080_Teaser-1920x1080-e493e509459084b776acc190762fd3e6.jpg"
+                            }
+                        ],
+                        "seller": {
+                            "id": "o-ufmrk5furrrxgsp5tdngefzt5rxdcn",
+                            "name": "Epic Dev Test Account"
+                        },
+                        "productSlug": "[]",
+                        "urlSlug": "december19mysterygame",
+                        "url": null,
+                        "items": [
+                            {
+                                "id": "8341d7c7e4534db7848cc428aa4cbe5a",
+                                "namespace": "d5241c76f178492ea1540fce45616757"
+                            }
+                        ],
+                        "customAttributes": [
+                            {
+                                "key": "com.epicgames.app.freegames.vault.close",
+                                "value": "[]"
+                            },
+                            {
+                                "key": "com.epicgames.app.freegames.vault.slug",
+                                "value": "news/the-holiday-sale-returns-on-december-17-plus-15-free-games"
+                            },
+                            {
+                                "key": "com.epicgames.app.blacklist",
+                                "value": "[]"
+                            },
+                            {
+                                "key": "publisherName",
+                                "value": "[]"
+                            },
+                            {
+                                "key": "com.epicgames.app.freegames.vault.open",
+                                "value": "[]"
+                            },
+                            {
+                                "key": "com.epicgames.app.productSlug",
+                                "value": "[]"
+                            }
+                        ],
+                        "categories": [
+                            {
+                                "path": "freegames/vaulted"
+                            },
+                            {
+                                "path": "freegames"
+                            },
+                            {
+                                "path": "games"
+                            },
+                            {
+                                "path": "applications"
+                            }
+                        ],
+                        "tags": [],
+                        "price": {
+                            "totalPrice": {
+                                "discountPrice": 0,
+                                "originalPrice": 0,
+                                "voucherDiscount": 0,
+                                "discount": 0,
+                                "currencyCode": "PLN",
+                                "currencyInfo": {
+                                    "decimals": 2
+                                },
+                                "fmtPrice": {
+                                    "originalPrice": "0",
+                                    "discountPrice": "0",
+                                    "intermediatePrice": "0"
+                                }
+                            },
+                            "lineOffers": [
+                                {
+                                    "appliedRules": []
+                                }
+                            ]
+                        },
+                        "promotions": {
+                            "promotionalOffers": [],
+                            "upcomingPromotionalOffers": [
+                                {
+                                    "promotionalOffers": [
+                                        {
+                                            "startDate": "2020-12-19T16:00:00.000Z",
+                                            "endDate": "2020-12-20T16:00:00.000Z",
+                                            "discountSetting": {
+                                                "discountType": "PERCENTAGE",
+                                                "discountPercentage": 0
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "title": "Oddworld: New 'n' Tasty",
+                        "id": "8fd1e71c6fc24e75b38d0f297bf3fef2",
+                        "namespace": "d5241c76f178492ea1540fce45616757",
+                        "description": "Oddworld: New 'n' Tasty",
+                        "effectiveDate": "2099-01-01T00:00:00.000Z",
+                        "keyImages": [
+                            {
+                                "type": "VaultClosed",
+                                "url": "https://cdn1.epicgames.com/d5241c76f178492ea1540fce45616757/offer/EGS_HolidaySale2020_DoG_18_1920x1080_Teaser-1920x1080-fa363f9ed8c09db6576b993e27e02c8e.jpg"
+                            },
+                            {
+                                "type": "DieselStoreFrontWide",
+                                "url": "https://cdn1.epicgames.com/d5241c76f178492ea1540fce45616757/offer/EGS_HolidaySale2020_DoG_Oddworld_1920x1080_Teaser-R-1920x1080-2ca053d0ab9e0f79645d9eaab8d477b6.jpg"
+                            }
+                        ],
+                        "seller": {
+                            "id": "o-ufmrk5furrrxgsp5tdngefzt5rxdcn",
+                            "name": "Epic Dev Test Account"
+                        },
+                        "productSlug": "oddworld-new-n-tasty",
+                        "urlSlug": "december18mysterygame",
+                        "url": null,
+                        "items": [
+                            {
+                                "id": "8341d7c7e4534db7848cc428aa4cbe5a",
+                                "namespace": "d5241c76f178492ea1540fce45616757"
+                            }
+                        ],
+                        "customAttributes": [
+                            {
+                                "key": "com.epicgames.app.freegames.vault.close",
+                                "value": "[]"
+                            },
+                            {
+                                "key": "com.epicgames.app.freegames.vault.slug",
+                                "value": "news/the-holiday-sale-returns-on-december-17-plus-15-free-games"
+                            },
+                            {
+                                "key": "com.epicgames.app.blacklist",
+                                "value": "[]"
+                            },
+                            {
+                                "key": "publisherName",
+                                "value": "Oddworld Inhabitants, Inc."
+                            },
+                            {
+                                "key": "com.epicgames.app.freegames.vault.open",
+                                "value": "[]"
+                            },
+                            {
+                                "key": "developerName",
+                                "value": "Just Add Water"
+                            },
+                            {
+                                "key": "com.epicgames.app.productSlug",
+                                "value": "oddworld-new-n-tasty"
+                            }
+                        ],
+                        "categories": [
+                            {
+                                "path": "freegames/vaulted"
+                            },
+                            {
+                                "path": "freegames"
+                            },
+                            {
+                                "path": "games"
+                            },
+                            {
+                                "path": "applications"
+                            }
+                        ],
+                        "tags": [],
+                        "price": {
+                            "totalPrice": {
+                                "discountPrice": 0,
+                                "originalPrice": 0,
+                                "voucherDiscount": 0,
+                                "discount": 0,
+                                "currencyCode": "PLN",
+                                "currencyInfo": {
+                                    "decimals": 2
+                                },
+                                "fmtPrice": {
+                                    "originalPrice": "0",
+                                    "discountPrice": "0",
+                                    "intermediatePrice": "0"
+                                }
+                            },
+                            "lineOffers": [
+                                {
+                                    "appliedRules": []
+                                }
+                            ]
+                        },
+                        "promotions": {
+                            "promotionalOffers": [
+                                {
+                                    "promotionalOffers": [
+                                        {
+                                            "startDate": "2020-12-18T16:00:00.000Z",
+                                            "endDate": "2020-12-19T16:00:00.000Z",
+                                            "discountSetting": {
+                                                "discountType": "PERCENTAGE",
+                                                "discountPercentage": 0
+                                            }
+                                        }
+                                    ]
+                                }
+                            ],
+                            "upcomingPromotionalOffers": []
+                        }
+                    }
+                ],
+                "paging": {
+                    "count": 1000,
+                    "total": 2
+                }
+            }
+        }
+    },
+    "extensions": {
+        "cacheControl": {
+            "version": 1,
+            "hints": [
+                {
+                    "path": [
+                        "Catalog"
+                    ],
+                    "maxAge": 0
+                },
+                {
+                    "path": [
+                        "Catalog",
+                        "searchStore"
+                    ],
+                    "maxAge": 0
+                },
+                {
+                    "path": [
+                        "Catalog",
+                        "searchStore",
+                        "elements"
+                    ],
+                    "maxAge": 0
+                },
+                {
+                    "path": [
+                        "Catalog",
+                        "searchStore",
+                        "paging"
+                    ],
+                    "maxAge": 0
+                },
+                {
+                    "path": [
+                        "Catalog",
+                        "searchStore",
+                        "elements",
+                        0,
+                        "keyImages"
+                    ],
+                    "maxAge": 0
+                },
+                {
+                    "path": [
+                        "Catalog",
+                        "searchStore",
+                        "elements",
+                        0,
+                        "seller"
+                    ],
+                    "maxAge": 0
+                },
+                {
+                    "path": [
+                        "Catalog",
+                        "searchStore",
+                        "elements",
+                        0,
+                        "items"
+                    ],
+                    "maxAge": 0
+                },
+                {
+                    "path": [
+                        "Catalog",
+                        "searchStore",
+                        "elements",
+                        0,
+                        "customAttributes"
+                    ],
+                    "maxAge": 0
+                },
+                {
+                    "path": [
+                        "Catalog",
+                        "searchStore",
+                        "elements",
+                        0,
+                        "categories"
+                    ],
+                    "maxAge": 0
+                },
+                {
+                    "path": [
+                        "Catalog",
+                        "searchStore",
+                        "elements",
+                        0,
+                        "tags"
+                    ],
+                    "maxAge": 0
+                },
+                {
+                    "path": [
+                        "Catalog",
+                        "searchStore",
+                        "elements",
+                        0,
+                        "price"
+                    ],
+                    "maxAge": 0
+                },
+                {
+                    "path": [
+                        "Catalog",
+                        "searchStore",
+                        "elements",
+                        0,
+                        "promotions"
+                    ],
+                    "maxAge": 0
+                },
+                {
+                    "path": [
+                        "Catalog",
+                        "searchStore",
+                        "elements",
+                        1,
+                        "keyImages"
+                    ],
+                    "maxAge": 0
+                },
+                {
+                    "path": [
+                        "Catalog",
+                        "searchStore",
+                        "elements",
+                        1,
+                        "seller"
+                    ],
+                    "maxAge": 0
+                },
+                {
+                    "path": [
+                        "Catalog",
+                        "searchStore",
+                        "elements",
+                        1,
+                        "items"
+                    ],
+                    "maxAge": 0
+                },
+                {
+                    "path": [
+                        "Catalog",
+                        "searchStore",
+                        "elements",
+                        1,
+                        "customAttributes"
+                    ],
+                    "maxAge": 0
+                },
+                {
+                    "path": [
+                        "Catalog",
+                        "searchStore",
+                        "elements",
+                        1,
+                        "categories"
+                    ],
+                    "maxAge": 0
+                },
+                {
+                    "path": [
+                        "Catalog",
+                        "searchStore",
+                        "elements",
+                        1,
+                        "tags"
+                    ],
+                    "maxAge": 0
+                },
+                {
+                    "path": [
+                        "Catalog",
+                        "searchStore",
+                        "elements",
+                        1,
+                        "price"
+                    ],
+                    "maxAge": 0
+                },
+                {
+                    "path": [
+                        "Catalog",
+                        "searchStore",
+                        "elements",
+                        1,
+                        "promotions"
+                    ],
+                    "maxAge": 0
+                },
+                {
+                    "path": [
+                        "Catalog",
+                        "searchStore",
+                        "elements",
+                        0,
+                        "price",
+                        "totalPrice"
+                    ],
+                    "maxAge": 600,
+                    "scope": "PUBLIC"
+                },
+                {
+                    "path": [
+                        "Catalog",
+                        "searchStore",
+                        "elements",
+                        0,
+                        "price",
+                        "lineOffers"
+                    ],
+                    "maxAge": 600,
+                    "scope": "PUBLIC"
+                },
+                {
+                    "path": [
+                        "Catalog",
+                        "searchStore",
+                        "elements",
+                        0,
+                        "price",
+                        "totalPrice",
+                        "discountPrice"
+                    ],
+                    "maxAge": 600,
+                    "scope": "PUBLIC"
+                },
+                {
+                    "path": [
+                        "Catalog",
+                        "searchStore",
+                        "elements",
+                        0,
+                        "price",
+                        "totalPrice",
+                        "originalPrice"
+                    ],
+                    "maxAge": 600,
+                    "scope": "PUBLIC"
+                },
+                {
+                    "path": [
+                        "Catalog",
+                        "searchStore",
+                        "elements",
+                        0,
+                        "price",
+                        "totalPrice",
+                        "voucherDiscount"
+                    ],
+                    "maxAge": 600,
+                    "scope": "PUBLIC"
+                },
+                {
+                    "path": [
+                        "Catalog",
+                        "searchStore",
+                        "elements",
+                        0,
+                        "price",
+                        "totalPrice",
+                        "discount"
+                    ],
+                    "maxAge": 600,
+                    "scope": "PUBLIC"
+                },
+                {
+                    "path": [
+                        "Catalog",
+                        "searchStore",
+                        "elements",
+                        0,
+                        "price",
+                        "totalPrice",
+                        "currencyCode"
+                    ],
+                    "maxAge": 600,
+                    "scope": "PUBLIC"
+                },
+                {
+                    "path": [
+                        "Catalog",
+                        "searchStore",
+                        "elements",
+                        0,
+                        "price",
+                        "totalPrice",
+                        "currencyInfo"
+                    ],
+                    "maxAge": 600,
+                    "scope": "PUBLIC"
+                },
+                {
+                    "path": [
+                        "Catalog",
+                        "searchStore",
+                        "elements",
+                        0,
+                        "price",
+                        "totalPrice",
+                        "fmtPrice"
+                    ],
+                    "maxAge": 600,
+                    "scope": "PUBLIC"
+                },
+                {
+                    "path": [
+                        "Catalog",
+                        "searchStore",
+                        "elements",
+                        0,
+                        "price",
+                        "lineOffers",
+                        0,
+                        "appliedRules"
+                    ],
+                    "maxAge": 600,
+                    "scope": "PUBLIC"
+                },
+                {
+                    "path": [
+                        "Catalog",
+                        "searchStore",
+                        "elements",
+                        1,
+                        "price",
+                        "totalPrice"
+                    ],
+                    "maxAge": 600,
+                    "scope": "PUBLIC"
+                },
+                {
+                    "path": [
+                        "Catalog",
+                        "searchStore",
+                        "elements",
+                        1,
+                        "price",
+                        "lineOffers"
+                    ],
+                    "maxAge": 600,
+                    "scope": "PUBLIC"
+                },
+                {
+                    "path": [
+                        "Catalog",
+                        "searchStore",
+                        "elements",
+                        1,
+                        "price",
+                        "totalPrice",
+                        "discountPrice"
+                    ],
+                    "maxAge": 600,
+                    "scope": "PUBLIC"
+                },
+                {
+                    "path": [
+                        "Catalog",
+                        "searchStore",
+                        "elements",
+                        1,
+                        "price",
+                        "totalPrice",
+                        "originalPrice"
+                    ],
+                    "maxAge": 600,
+                    "scope": "PUBLIC"
+                },
+                {
+                    "path": [
+                        "Catalog",
+                        "searchStore",
+                        "elements",
+                        1,
+                        "price",
+                        "totalPrice",
+                        "voucherDiscount"
+                    ],
+                    "maxAge": 600,
+                    "scope": "PUBLIC"
+                },
+                {
+                    "path": [
+                        "Catalog",
+                        "searchStore",
+                        "elements",
+                        1,
+                        "price",
+                        "totalPrice",
+                        "discount"
+                    ],
+                    "maxAge": 600,
+                    "scope": "PUBLIC"
+                },
+                {
+                    "path": [
+                        "Catalog",
+                        "searchStore",
+                        "elements",
+                        1,
+                        "price",
+                        "totalPrice",
+                        "currencyCode"
+                    ],
+                    "maxAge": 600,
+                    "scope": "PUBLIC"
+                },
+                {
+                    "path": [
+                        "Catalog",
+                        "searchStore",
+                        "elements",
+                        1,
+                        "price",
+                        "totalPrice",
+                        "currencyInfo"
+                    ],
+                    "maxAge": 600,
+                    "scope": "PUBLIC"
+                },
+                {
+                    "path": [
+                        "Catalog",
+                        "searchStore",
+                        "elements",
+                        1,
+                        "price",
+                        "totalPrice",
+                        "fmtPrice"
+                    ],
+                    "maxAge": 600,
+                    "scope": "PUBLIC"
+                },
+                {
+                    "path": [
+                        "Catalog",
+                        "searchStore",
+                        "elements",
+                        1,
+                        "price",
+                        "lineOffers",
+                        0,
+                        "appliedRules"
+                    ],
+                    "maxAge": 600,
+                    "scope": "PUBLIC"
+                },
+                {
+                    "path": [
+                        "Catalog",
+                        "searchStore",
+                        "elements",
+                        0,
+                        "promotions",
+                        "promotionalOffers"
+                    ],
+                    "maxAge": 0
+                },
+                {
+                    "path": [
+                        "Catalog",
+                        "searchStore",
+                        "elements",
+                        0,
+                        "promotions",
+                        "upcomingPromotionalOffers"
+                    ],
+                    "maxAge": 0
+                },
+                {
+                    "path": [
+                        "Catalog",
+                        "searchStore",
+                        "elements",
+                        1,
+                        "promotions",
+                        "promotionalOffers"
+                    ],
+                    "maxAge": 0
+                },
+                {
+                    "path": [
+                        "Catalog",
+                        "searchStore",
+                        "elements",
+                        1,
+                        "promotions",
+                        "upcomingPromotionalOffers"
+                    ],
+                    "maxAge": 0
+                },
+                {
+                    "path": [
+                        "Catalog",
+                        "searchStore",
+                        "elements",
+                        0,
+                        "promotions",
+                        "upcomingPromotionalOffers",
+                        0,
+                        "promotionalOffers"
+                    ],
+                    "maxAge": 0
+                },
+                {
+                    "path": [
+                        "Catalog",
+                        "searchStore",
+                        "elements",
+                        1,
+                        "promotions",
+                        "promotionalOffers",
+                        0,
+                        "promotionalOffers"
+                    ],
+                    "maxAge": 0
+                },
+                {
+                    "path": [
+                        "Catalog",
+                        "searchStore",
+                        "elements",
+                        0,
+                        "promotions",
+                        "upcomingPromotionalOffers",
+                        0,
+                        "promotionalOffers",
+                        0,
+                        "discountSetting"
+                    ],
+                    "maxAge": 0
+                },
+                {
+                    "path": [
+                        "Catalog",
+                        "searchStore",
+                        "elements",
+                        1,
+                        "promotions",
+                        "promotionalOffers",
+                        0,
+                        "promotionalOffers",
+                        0,
+                        "discountSetting"
+                    ],
+                    "maxAge": 0
+                }
+            ]
+        }
+    }
+}
