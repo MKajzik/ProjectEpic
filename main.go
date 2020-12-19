@@ -69,6 +69,7 @@ func SendSlackMessage(webhookURL string, msg string) error {
 //GetEpicFreeGame export
 func GetEpicFreeGame(url string) (string, error) {
 
+	now := time.Now()
 	resp, err := http.Get(url)
 	if err != nil {
 		fmt.Println(err)
@@ -85,6 +86,14 @@ func GetEpicFreeGame(url string) (string, error) {
 		return "json.Unmarshall ERROR", err
 	}
 
-	return darmowe.Data.Catalog.SearchStore.Elements[1].Title, nil
+	if darmowe.Data.Catalog.SearchStore.Elements[0].Promotions.PromotionalOffers[0].StartDate.Before(now) || darmowe.Data.Catalog.SearchStore.Elements[0].Promotions.PromotionalOffers[0].EndDate.After(now) {
+		return darmowe.Data.Catalog.SearchStore.Elements[0].Title, nil
+	}
+	if darmowe.Data.Catalog.SearchStore.Elements[1].Promotions.PromotionalOffers[0].StartDate.Before(now) || darmowe.Data.Catalog.SearchStore.Elements[1].Promotions.PromotionalOffers[0].EndDate.After(now) {
+		return darmowe.Data.Catalog.SearchStore.Elements[1].Title, nil
+	}
+
+	err = errors.New("None of data match to new free game")
+	return "None", err
 
 }

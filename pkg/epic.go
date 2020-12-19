@@ -78,15 +78,10 @@ type PromotionalOffer struct {
 	DiscountSettings DiscountSetting `json:"discountSetting"`
 }
 
-//UpcomingPromotionalOffer export
-type UpcomingPromotionalOffer struct {
-	PromotionalOffers []PromotionalOffer
-}
-
 //Promotion export
 type Promotion struct {
-	PromotionalOffers         []interface{}              `json:"promotionalOffers"`
-	UpcomingPromotionalOffers []UpcomingPromotionalOffer `json:"upcomingPromotionalOffers"`
+	PromotionalOffers         []PromotionalOffer `json:"promotionalOffers"`
+	UpcomingPromotionalOffers []PromotionalOffer `json:"upcomingPromotionalOffers"`
 }
 
 //Element export
