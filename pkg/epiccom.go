@@ -28,19 +28,22 @@ func checkFreeGame(darmowe Darmowe) (string, int) {
 
 //CheckDailyGame export
 func CheckDailyGame(epicURL string, webhookURL string, done chan bool) {
+	var poprzedniaGra string
 	for {
 		freeGame, err := getEpicFreeGame(epicURL)
 		if err != nil {
 			fmt.Println(err)
 			return
 		}
-		epicJSON, err := prepareJSON(freeGame)
+		epicJSON, aktualnaGra, err := prepareJSON(freeGame)
 		if err != nil {
 			fmt.Println(err)
 			return
 		}
-
-		slackcom.SendSlackMessage(webhookURL, epicJSON)
+		if poprzedniaGra != aktualnaGra {
+			slackcom.SendSlackMessage(webhookURL, epicJSON)
+			poprzedniaGra = aktualnaGra
+		}
 		time.Sleep(30 * time.Second)
 	}
 	done <- true
@@ -67,37 +70,45 @@ func getEpicFreeGame(url string) (Darmowe, error) {
 
 }
 
-func prepareJSON(darmowe Darmowe) ([]byte, error) {
+func prepareJSON(darmowe Darmowe) ([]byte, string, error) {
 	var image string
 	text, num := checkFreeGame(darmowe)
-	if num == 400 {
-		return []byte("Dzisiaj nie ma zadnej gry do odebrania. Sorki :P"), nil
-	}
 
 	for i := 0; i < len(darmowe.Data.Catalog.SearchStore.Elements[num].KeyImages); i++ {
 		if darmowe.Data.Catalog.SearchStore.Elements[num].KeyImages[i].Type != "VaultClosed" {
 			image = darmowe.Data.Catalog.SearchStore.Elements[num].KeyImages[i].URL
 		}
 	}
-
 	msg := slackcom.Slack{}
-	msg.Blocks = make([]slackcom.Blocks, 2)
 
-	msg.Blocks[0].Type = "section"
-	msg.Blocks[0].Text.Type = "mrkdwn"
-	msg.Blocks[0].Text.Text = "Siema, dzisiaj Epic zaserwował nam nową darmową grę. Poniżej sprawdźcie ją i nie zapomnijcie jej *ODEBRAĆ*!"
-	msg.Blocks[1].Type = "section"
-	msg.Blocks[1].Text.Type = "mrkdwn"
-	msg.Blocks[1].Text.Text = text
-	msg.Blocks[1].Accessory = &slackcom.Accessory{}
-	msg.Blocks[1].Accessory.Type = "image"
-	msg.Blocks[1].Accessory.ImageURL = image
-	msg.Blocks[1].Accessory.AltText = text
+	if num == 400 {
+
+		msg.Blocks = make([]slackcom.Blocks, 1)
+
+		msg.Blocks[0].Type = "section"
+		msg.Blocks[0].Text.Type = "mrkdwn"
+		msg.Blocks[0].Text.Text = "Dzisiaj nie ma zadnej gry do odebrania. Sorki :P!"
+
+	} else {
+		msg.Blocks = make([]slackcom.Blocks, 2)
+
+		msg.Blocks[0].Type = "section"
+		msg.Blocks[0].Text.Type = "mrkdwn"
+		msg.Blocks[0].Text.Text = "Siema, dzisiaj Epic zaserwował nam nową darmową grę. Poniżej sprawdźcie ją i nie zapomnijcie jej *ODEBRAĆ*!"
+		msg.Blocks[1].Type = "section"
+		msg.Blocks[1].Text.Type = "mrkdwn"
+		msg.Blocks[1].Text.Text = text
+		msg.Blocks[1].Accessory = &slackcom.Accessory{}
+		msg.Blocks[1].Accessory.Type = "image"
+		msg.Blocks[1].Accessory.ImageURL = image
+		msg.Blocks[1].Accessory.AltText = text
+
+	}
 
 	//Encode by Marshal message to json
 	requestBody, err := json.Marshal(msg)
 	if err != nil {
-		return nil, err
+		return nil, "error", err
 	}
-	return requestBody, nil
+	return requestBody, text, nil
 }

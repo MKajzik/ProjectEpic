@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: epic-deployment
+  labels:
+    app: epic
+spec:
+  replicas: 0
+  selector:
+    matchLabels:
+      app: epic
+  template:
+    metadata:
+      labels:
+        app: epic
+    spec:
+      containers:
+      - name: epic
+        image: registry.togi.cloud/epic:v1.1
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 5000
