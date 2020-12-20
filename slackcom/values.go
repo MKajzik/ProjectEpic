@@ -1,4 +1,4 @@
-package httpvalues
+package slackcom
 
 //Slack export
 type Slack struct {

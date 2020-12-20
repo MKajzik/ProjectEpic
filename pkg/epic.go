@@ -1,4 +1,4 @@
-package struktura
+package epic
 
 import "time"
 
