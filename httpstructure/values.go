@@ -20,7 +20,7 @@ type Accessory struct {
 
 //Blocks export
 type Blocks struct {
-	Type      string    `json:"type"`
-	Text      Text      `json:"text"`
-	Accessory Accessory `json:"accessory,omitempty"`
+	Type      string     `json:"type"`
+	Text      Text       `json:"text"`
+	Accessory *Accessory `json:"accessory,omitempty"`
 }

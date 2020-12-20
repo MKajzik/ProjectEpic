@@ -58,13 +58,14 @@ func SendSlackMessage(webhookURL string, darmowe struktura.Darmowe) error {
 
 	msg := httpvalues.Slack{}
 	msg.Blocks = make([]httpvalues.Blocks, 2)
+
 	msg.Blocks[0].Type = "section"
 	msg.Blocks[0].Text.Type = "mrkdwn"
 	msg.Blocks[0].Text.Text = "Siema, dzisiaj Epic zaserwował nam nową darmową grę. Poniżej sprawdźcie ją i nie zapomnijcie jej *ODEBRAĆ*!"
-	msg.Blocks[0].Accessory = nil
 	msg.Blocks[1].Type = "section"
 	msg.Blocks[1].Text.Type = "mrkdwn"
 	msg.Blocks[1].Text.Text = text
+	msg.Blocks[1].Accessory = &httpvalues.Accessory{}
 	msg.Blocks[1].Accessory.Type = "image"
 	msg.Blocks[1].Accessory.ImageURL = image
 	msg.Blocks[1].Accessory.AltText = text
@@ -98,7 +99,6 @@ func SendSlackMessage(webhookURL string, darmowe struktura.Darmowe) error {
 		return errors.New("Non-ok response returned from Slack")
 	}
 
-	fmt.Println("zakonczylem sie")
 	return nil
 }
 
