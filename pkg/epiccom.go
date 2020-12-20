@@ -14,12 +14,15 @@ import (
 func checkFreeGame(darmowe Darmowe) (string, int) {
 
 	now := time.Now()
-	if darmowe.Data.Catalog.SearchStore.Elements[0].Promotions.PromotionalOffers[0].StartDate.Before(now) || darmowe.Data.Catalog.SearchStore.Elements[0].Promotions.PromotionalOffers[0].EndDate.After(now) {
-		return darmowe.Data.Catalog.SearchStore.Elements[0].Title, 0
+	for i := 0; i < len(darmowe.Data.Catalog.SearchStore.Elements); i++ {
+		if len(darmowe.Data.Catalog.SearchStore.Elements[i].Promotions.PromotionalOffers) != 0 {
+			if darmowe.Data.Catalog.SearchStore.Elements[i].Promotions.PromotionalOffers[0].StartDate.Before(now) || darmowe.Data.Catalog.SearchStore.Elements[i].Promotions.PromotionalOffers[0].EndDate.After(now) {
+				return darmowe.Data.Catalog.SearchStore.Elements[i].Title, i
+			}
+		}
+
 	}
-	if darmowe.Data.Catalog.SearchStore.Elements[1].Promotions.PromotionalOffers[0].StartDate.Before(now) || darmowe.Data.Catalog.SearchStore.Elements[1].Promotions.PromotionalOffers[0].EndDate.After(now) {
-		return darmowe.Data.Catalog.SearchStore.Elements[1].Title, 1
-	}
+
 	return "Brak darmowej gry", 400
 }
 
@@ -67,8 +70,11 @@ func getEpicFreeGame(url string) (Darmowe, error) {
 func prepareJSON(darmowe Darmowe) ([]byte, error) {
 	var image string
 	text, num := checkFreeGame(darmowe)
+	if num == 400 {
+		return []byte("Dzisiaj nie ma zadnej gry do odebrania. Sorki :P"), nil
+	}
 
-	for i := 0; i < len(darmowe.Data.Catalog.SearchStore.Elements); i++ {
+	for i := 0; i < len(darmowe.Data.Catalog.SearchStore.Elements[num].KeyImages); i++ {
 		if darmowe.Data.Catalog.SearchStore.Elements[num].KeyImages[i].Type != "VaultClosed" {
 			image = darmowe.Data.Catalog.SearchStore.Elements[num].KeyImages[i].URL
 		}
