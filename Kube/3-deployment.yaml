@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: epic
-        image: registry.togi.cloud/epic:v1.1
+        image: registry.togi.cloud/epic:latest
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 5000
