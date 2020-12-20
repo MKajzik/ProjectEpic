@@ -44,7 +44,7 @@ func CheckDailyGame(epicURL string, webhookURL string, done chan bool) {
 			slackcom.SendSlackMessage(webhookURL, epicJSON)
 			poprzedniaGra = aktualnaGra
 		}
-		time.Sleep(30 * time.Second)
+		time.Sleep(30 * time.Minute)
 	}
 	done <- true
 }
