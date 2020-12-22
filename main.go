@@ -1,11 +1,7 @@
 package main
 
 import (
-	epic "kazik/epic/darmowe/pkg"
-)
-
-const (
-	token string = "xoxb-245805981380-1581140089558-iH4W0EqnKHcxdG6VY9w535yD"
+	epic "kazik/free/game/integration/epic"
 )
 
 func main() {

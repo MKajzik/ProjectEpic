@@ -119,7 +119,7 @@ type Data struct {
 	Catalog Catalog `json:"Catalog"`
 }
 
-//Darmowe export
-type Darmowe struct {
+//FreeGame export
+type FreeGame struct {
 	Data Data `json:"data"`
 }

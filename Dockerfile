@@ -8,8 +8,8 @@ RUN go get -d -v ./...
 
 RUN go install -v ./...
 
-RUN go build .
+RUN go build -o epic .
 
 EXPOSE 8080
 
-CMD ["darmowe"]
+CMD ["./epic"]

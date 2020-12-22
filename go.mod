@@ -1,3 +1,3 @@
-module kazik/epic/darmowe
+module kazik/free/game
 
 go 1.15
