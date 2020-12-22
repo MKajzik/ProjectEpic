@@ -9,6 +9,7 @@ import (
 //CheckDailyGame export
 func CheckDailyGame(epicURL string, webhookURL string, done chan bool) {
 	var previousGame string
+
 	for {
 		freeGame, err := getEpicFreeGame(epicURL)
 		if err != nil {

@@ -1,14 +1,10 @@
 package epic
 
 import (
-	"bytes"
 	"encoding/json"
-	"errors"
 	"fmt"
-	"io/ioutil"
 	"kazik/free/game/integration/slack"
 	"kazik/free/game/rest"
-	"net/http"
 	"time"
 )
 
@@ -27,27 +23,25 @@ func checkFreeGame(freeGameobject FreeGame) (string, int) {
 
 func getEpicFreeGame(url string) (FreeGame, error) {
 
-	JSONBytes, err := rest.GetJSON(url)
+	var freeGameobject FreeGame
+
+	response, err := rest.SendGET(url)
 	if err != nil {
 		return FreeGame{}, err
 	}
 
-	var freeGameobject FreeGame
-
-	if err := json.Unmarshal(*JSONBytes, &freeGameobject); err != nil {
+	if err := json.Unmarshal(*response, &freeGameobject); err != nil {
 		return FreeGame{}, err
 	}
 
-	err = errors.New("None of data match to new free game")
 	return freeGameobject, nil
-
 }
 
 func prepareJSON(freeGameObject FreeGame) ([]byte, string, error) {
 
-	text, num := checkFreeGame(freeGameObject)
-
 	var msg slack.WebhookJSON
+
+	text, num := checkFreeGame(freeGameObject)
 
 	if num == 400 {
 
@@ -59,21 +53,19 @@ func prepareJSON(freeGameObject FreeGame) ([]byte, string, error) {
 		if err != nil {
 			url = "https://www.epicgames.com/store/pl/free-games"
 		}
-
 		msg = slack.CreateGameBlocks(text, image, url, true)
-
 	}
 
 	requestBody, err := json.Marshal(msg)
 	if err != nil {
 		return nil, "error", err
 	}
-
 	return requestBody, text, nil
 }
 
 func searchForImage(num int, freeGameobject FreeGame) string {
 	var image string
+
 	for i := 0; i < len(freeGameobject.Data.Catalog.SearchStore.Elements[num].KeyImages); i++ {
 		if freeGameobject.Data.Catalog.SearchStore.Elements[num].KeyImages[i].Type != "VaultClosed" {
 			image = freeGameobject.Data.Catalog.SearchStore.Elements[num].KeyImages[i].URL
@@ -85,42 +77,26 @@ func searchForImage(num int, freeGameobject FreeGame) string {
 
 func prepareURL(name string) (string, error) {
 
-	//TODO Refactor this function
+	var gameNameObject FreeGame
 
 	msg := CreateQuery(name)
 
 	requestBody, err := json.Marshal(msg)
 	if err != nil {
-		fmt.Println("blad 1")
-		return "error", err
+		fmt.Println(err)
+		return "", err
 	}
 
-	fmt.Println(string(requestBody))
-
-	response, err := http.Post("https://www.epicgames.com/graphql", "application/json", bytes.NewBuffer(requestBody))
+	response, err := rest.SendPOST("application/json", "https://www.epicgames.com/graphql", requestBody)
 	if err != nil {
 		fmt.Println(err)
 		return "", err
 	}
 
-	defer response.Body.Close()
-
-	if response.StatusCode != 200 {
-		fmt.Println("blad 3")
+	if err := json.Unmarshal(*response, &gameNameObject); err != nil {
+		fmt.Println(err)
 		return "", err
 	}
-
-	byteValue, _ := ioutil.ReadAll(response.Body)
-
-	fmt.Println(string(byteValue))
-
-	var gameNameObject FreeGame
-
-	if err := json.Unmarshal(byteValue, &gameNameObject); err != nil {
-		fmt.Println("blad 4")
-		return "", err
-	}
-	fmt.Println(gameNameObject.Data.Catalog.SearchStore.Elements[0].Title)
 
 	sufix := searchForURL(gameNameObject, name)
 

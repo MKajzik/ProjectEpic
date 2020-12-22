@@ -9,7 +9,7 @@ import (
 func SendSlackMessage(webhookURL string, msg []byte) error {
 
 	fmt.Println("Slack")
-	_, err := rest.PrepareAndExecuteRequest("POST", webhookURL, msg)
+	_, err := rest.SendPOST("application/json", webhookURL, msg)
 	if err != nil {
 		return err
 	}
