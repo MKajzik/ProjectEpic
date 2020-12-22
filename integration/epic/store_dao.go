@@ -1,12 +1,14 @@
 package epic
 
 import (
+	"bytes"
 	"encoding/json"
 	"errors"
 	"fmt"
 	"io/ioutil"
 	"kazik/free/game/integration/slack"
 	"kazik/free/game/rest"
+	"net/http"
 	"time"
 )
 
@@ -29,8 +31,6 @@ func getEpicFreeGame(url string) (FreeGame, error) {
 	if err != nil {
 		return FreeGame{}, err
 	}
-
-	fmt.Println(string(*JSONBytes))
 
 	var freeGameobject FreeGame
 
@@ -68,6 +68,7 @@ func prepareJSON(freeGameObject FreeGame) ([]byte, string, error) {
 	if err != nil {
 		return nil, "error", err
 	}
+
 	return requestBody, text, nil
 }
 
@@ -88,30 +89,35 @@ func prepareURL(name string) (string, error) {
 
 	msg := CreateQuery(name)
 
-	fmt.Println(msg.Variable.Keywords)
-
 	requestBody, err := json.Marshal(msg)
 	if err != nil {
+		fmt.Println("blad 1")
 		return "error", err
 	}
+
 	fmt.Println(string(requestBody))
 
-	response, err := rest.PrepareAndExecuteRequest("POST", "https://www.epicgames.com/graphql", requestBody)
+	response, err := http.Post("https://www.epicgames.com/graphql", "application/json", bytes.NewBuffer(requestBody))
 	if err != nil {
+		fmt.Println(err)
 		return "", err
 	}
 
 	defer response.Body.Close()
 
 	if response.StatusCode != 200 {
+		fmt.Println("blad 3")
 		return "", err
 	}
 
 	byteValue, _ := ioutil.ReadAll(response.Body)
 
+	fmt.Println(string(byteValue))
+
 	var gameNameObject FreeGame
 
 	if err := json.Unmarshal(byteValue, &gameNameObject); err != nil {
+		fmt.Println("blad 4")
 		return "", err
 	}
 	fmt.Println(gameNameObject.Data.Catalog.SearchStore.Elements[0].Title)

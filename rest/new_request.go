@@ -3,7 +3,6 @@ package rest
 import (
 	"bytes"
 	"errors"
-	"fmt"
 	"io/ioutil"
 	"net/http"
 	"time"
@@ -33,8 +32,6 @@ func doRequest(request *http.Request) (*http.Response, error) {
 		return nil, err
 	}
 	defer response.Body.Close()
-
-	fmt.Println(response)
 
 	return response, nil
 }
@@ -81,7 +78,7 @@ func GetJSON(url string) (*[]byte, error) {
 		return nil, err
 	}
 
-	checkResponse(response)
+	//checkResponse(response)
 
 	byteValue, _ := ioutil.ReadAll(response.Body)
 

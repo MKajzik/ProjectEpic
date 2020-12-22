@@ -16,10 +16,11 @@ func CreateGameBlocks(text string, image string, url string, emoji bool) Webhook
 	msg.Blocks[1].Text.Text = text
 	msg.Blocks[1].Accessory = &Accessory{}
 	msg.Blocks[1].Accessory.Type = "image"
-	msg.Blocks[1].Accessory.ImageURL = image
+	msg.Blocks[1].Accessory.ImageURL = &image
 	msg.Blocks[1].Accessory.AltText = &text
 	msg.Blocks[2].Type = "section"
 	msg.Blocks[2].Text.Type = "mrkdwn"
+	msg.Blocks[2].Text.Text = "Odbierz mnie pliska. *NO PLISKA*"
 	msg.Blocks[2].Accessory = &Accessory{}
 	msg.Blocks[2].Accessory.Type = "button"
 	msg.Blocks[2].Accessory.Text = &Text{}
@@ -27,7 +28,7 @@ func CreateGameBlocks(text string, image string, url string, emoji bool) Webhook
 	msg.Blocks[2].Accessory.Text.Text = "ODBIERZ"
 	msg.Blocks[2].Accessory.Text.Emoji = &emoji
 	msg.Blocks[2].Accessory.Value = &value
-	msg.Blocks[2].Accessory.URL = &image
+	msg.Blocks[2].Accessory.URL = &url
 	msg.Blocks[2].Accessory.ActionID = &action
 
 	return msg

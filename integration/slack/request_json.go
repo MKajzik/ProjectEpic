@@ -9,18 +9,18 @@ type WebhookJSON struct {
 type Text struct {
 	Type  string `json:"type"`
 	Text  string `json:"text"`
-	Emoji *bool  `json:"emoji"`
+	Emoji *bool  `json:"emoji,omitempty"`
 }
 
 //Accessory export
 type Accessory struct {
 	Type     string  `json:"type"`
-	Text     *Text   `json:"text"`
-	ImageURL string  `json:"image_url"`
-	AltText  *string `json:"alt_text"`
-	Value    *string `json:"value"`
-	URL      *string `json:"url"`
-	ActionID *string `json:"action_id"`
+	Text     *Text   `json:"text,omitempty"`
+	ImageURL *string  `json:"image_url,omitempty"`
+	AltText  *string `json:"alt_text,omitempty"`
+	Value    *string `json:"value,omitempty"`
+	URL      *string `json:"url,omitempty"`
+	ActionID *string `json:"action_id,omitempty"`
 }
 
 //Blocks export
