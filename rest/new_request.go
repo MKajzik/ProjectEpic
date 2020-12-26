@@ -3,6 +3,7 @@ package rest
 import (
 	"bytes"
 	"errors"
+	"fmt"
 	"io/ioutil"
 	"net/http"
 )
@@ -30,6 +31,7 @@ func SendGET(url string) (*[]byte, error) {
 
 	response, err := http.Get(url)
 	if err != nil {
+		fmt.Println(err)
 		return nil, err
 	}
 	defer response.Body.Close()

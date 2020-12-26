@@ -39,13 +39,24 @@ func getEpicFreeGame(url string) (FreeGame, error) {
 
 func prepareJSON(freeGameObject FreeGame) ([]byte, string, error) {
 
-	var msg slack.WebhookJSON
+	msg := slack.NewRequest()
 
 	text, num := checkFreeGame(freeGameObject)
 
 	if num == 400 {
+		textBuilder := slack.NewTextBuilder()
+		text1 := textBuilder.
+			SetType("mrkdwn").
+			SetText("Dzisiaj nie ma zadnej gry do odebrania. Sorki :P!").
+			Build()
 
-		msg = slack.CreateNoGameBlock()
+		blockBuilder := slack.NewBlockBuilder()
+		block1 := blockBuilder.
+			SetType("section").
+			SetText(text1).
+			Build()
+
+		msg.AddItem(block1)
 
 	} else {
 		image := searchForImage(num, freeGameObject)
@@ -53,13 +64,68 @@ func prepareJSON(freeGameObject FreeGame) ([]byte, string, error) {
 		if err != nil {
 			url = "https://www.epicgames.com/store/pl/free-games"
 		}
-		msg = slack.CreateGameBlocks(text, image, url, true)
+		textBuilder := slack.NewTextBuilder()
+		accessoryBuilder := slack.NewAccessoryBuilder()
+		blockBuilder := slack.NewBlockBuilder()
+
+		block1 := blockBuilder.
+			SetType("section").
+			SetText(textBuilder.
+				SetType("mrkdwn").
+				SetText("Siema, dzisiaj Epic zaserwował nam nową darmową grę. Poniżej sprawdźcie ją i nie zapomnijcie jej *ODEBRAĆ*!").
+				Build()).
+			Build()
+
+		textBuilder.Reset()
+		accessoryBuilder.Reset()
+		blockBuilder.Reset()
+
+		block2 := blockBuilder.
+			SetType("section").
+			SetText(textBuilder.
+				SetType("mrkdwn").
+				SetText(text).
+				Build()).
+			SetAccessory(accessoryBuilder.
+				SetType("image").
+				SetImageURL(image).
+				SetAltText(text).
+				Build()).
+			Build()
+
+		textBuilder.Reset()
+		accessoryBuilder.Reset()
+		blockBuilder.Reset()
+
+		block3 := blockBuilder.
+			SetType("section").
+			SetText(textBuilder.
+				SetType("mrkdwn").
+				SetText("Odbierz mnie pliska. *NO PLISKA*").
+				Build()).
+			SetAccessory(accessoryBuilder.
+				SetType("button").
+				SetText(textBuilder.
+					SetType("plain_text").
+					SetText("ODBIERZ").
+					SetEmoji(true).
+					Build()).
+				SetValue("click_me_123").
+				SetURL(url).
+				SetActionID("button-action").
+				Build()).
+			Build()
+
+		msg.AddItem(block1)
+		msg.AddItem(block2)
+		msg.AddItem(block3)
 	}
 
 	requestBody, err := json.Marshal(msg)
 	if err != nil {
 		return nil, "error", err
 	}
+
 	return requestBody, text, nil
 }
 

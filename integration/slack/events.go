@@ -8,8 +8,8 @@ import (
 //SendSlackMessage exported
 func SendSlackMessage(webhookURL string, msg []byte) error {
 
-	fmt.Println("Slack")
 	_, err := rest.SendPOST("application/json", webhookURL, msg)
+	fmt.Println(err)
 	if err != nil {
 		return err
 	}
