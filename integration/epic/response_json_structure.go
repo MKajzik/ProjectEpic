@@ -124,8 +124,8 @@ type FreeGame struct {
 	Data Data `json:"data"`
 }
 
-//GetTitle export
-func (f FreeGame) GetTitle(i int) string {
+//GetElementTitle export
+func (f FreeGame) GetElementTitle(i int) string {
 	return f.Data.Catalog.SearchStore.Elements[i].Title
 }
 
@@ -152,4 +152,19 @@ func (f FreeGame) GetKeyImageType(i int, j int) string {
 //GetKeyImageURL export
 func (f FreeGame) GetKeyImageURL(i int, j int) string {
 	return f.Data.Catalog.SearchStore.Elements[i].KeyImages[j].URL
+}
+
+//GetPromotionalOffers export
+func (f FreeGame) GetPromotionalOffers(i int) []PromotionalOffer {
+	return f.Data.Catalog.SearchStore.Elements[i].Promotions.PromotionalOffers
+}
+
+//GetPromotianlOfferStartDate export
+func (f FreeGame) GetPromotianlOfferStartDate(i int) time.Time {
+	return f.Data.Catalog.SearchStore.Elements[i].Promotions.PromotionalOffers[0].StartDate
+}
+
+//GetPromotianlOfferEndDate export
+func (f FreeGame) GetPromotianlOfferEndDate(i int) time.Time {
+	return f.Data.Catalog.SearchStore.Elements[i].Promotions.PromotionalOffers[0].EndDate
 }

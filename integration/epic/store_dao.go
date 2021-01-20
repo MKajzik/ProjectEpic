@@ -11,10 +11,10 @@ import (
 func checkFreeGame(freeGameobject FreeGame) (string, int) {
 
 	now := time.Now()
-	for i := 0; i < len(freeGameobject.Data.Catalog.SearchStore.Elements); i++ {
-		if len(freeGameobject.Data.Catalog.SearchStore.Elements[i].Promotions.PromotionalOffers) != 0 {
-			if freeGameobject.Data.Catalog.SearchStore.Elements[i].Promotions.PromotionalOffers[0].StartDate.Before(now) || freeGameobject.Data.Catalog.SearchStore.Elements[i].Promotions.PromotionalOffers[0].EndDate.After(now) {
-				return freeGameobject.Data.Catalog.SearchStore.Elements[i].Title, i
+	for i := 0; i < len(freeGameobject.GetAllElements()); i++ {
+		if len(freeGameobject.GetPromotionalOffers(i)) != 0 {
+			if freeGameobject.GetPromotianlOfferStartDate(i).Before(now) || freeGameobject.GetPromotianlOfferEndDate(i).After(now) {
+				return freeGameobject.GetElementTitle(i), i
 			}
 		}
 	}
@@ -174,7 +174,7 @@ func prepareURL(name string) (string, error) {
 func searchForURL(gameNameObject FreeGame, name string) string {
 
 	for i := 0; i < len(gameNameObject.GetAllElements()); i++ {
-		if gameNameObject.GetTitle(i) == name {
+		if gameNameObject.GetElementTitle(i) == name {
 			return gameNameObject.GetProductSlug(i)
 		}
 	}
