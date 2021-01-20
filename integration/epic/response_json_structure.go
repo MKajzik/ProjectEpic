@@ -123,3 +123,33 @@ type Data struct {
 type FreeGame struct {
 	Data Data `json:"data"`
 }
+
+//GetTitle export
+func (f FreeGame) GetTitle(i int) string {
+	return f.Data.Catalog.SearchStore.Elements[i].Title
+}
+
+//GetProductSlug export
+func (f FreeGame) GetProductSlug(i int) string {
+	return f.Data.Catalog.SearchStore.Elements[i].ProductSlug
+}
+
+//GetAllElements export
+func (f FreeGame) GetAllElements() []Element {
+	return f.Data.Catalog.SearchStore.Elements
+}
+
+//GetAllKeyImages export
+func (f FreeGame) GetAllKeyImages(i int) []KeyImage {
+	return f.Data.Catalog.SearchStore.Elements[i].KeyImages
+}
+
+//GetKeyImageType export
+func (f FreeGame) GetKeyImageType(i int, j int) string {
+	return f.Data.Catalog.SearchStore.Elements[i].KeyImages[j].Type
+}
+
+//GetKeyImageURL export
+func (f FreeGame) GetKeyImageURL(i int, j int) string {
+	return f.Data.Catalog.SearchStore.Elements[i].KeyImages[j].URL
+}

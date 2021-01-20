@@ -132,9 +132,9 @@ func prepareJSON(freeGameObject FreeGame) ([]byte, string, error) {
 func searchForImage(num int, freeGameobject FreeGame) string {
 	var image string
 
-	for i := 0; i < len(freeGameobject.Data.Catalog.SearchStore.Elements[num].KeyImages); i++ {
-		if freeGameobject.Data.Catalog.SearchStore.Elements[num].KeyImages[i].Type != "VaultClosed" {
-			image = freeGameobject.Data.Catalog.SearchStore.Elements[num].KeyImages[i].URL
+	for i := 0; i < len(freeGameobject.GetAllKeyImages(num)); i++ {
+		if freeGameobject.GetKeyImageType(num, i) != "VaultClosed" {
+			image = freeGameobject.GetKeyImageURL(num, i)
 		}
 	}
 
@@ -173,9 +173,9 @@ func prepareURL(name string) (string, error) {
 
 func searchForURL(gameNameObject FreeGame, name string) string {
 
-	for i := 0; i < len(gameNameObject.Data.Catalog.SearchStore.Elements); i++ {
-		if gameNameObject.Data.Catalog.SearchStore.Elements[i].Title == name {
-			return gameNameObject.Data.Catalog.SearchStore.Elements[i].ProductSlug
+	for i := 0; i < len(gameNameObject.GetAllElements()); i++ {
+		if gameNameObject.GetTitle(i) == name {
+			return gameNameObject.GetProductSlug(i)
 		}
 	}
 	return "fortnite"

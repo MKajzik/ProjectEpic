@@ -18,7 +18,8 @@ func SendPOST(contentType string, URL string, msg []byte) (*[]byte, error) {
 	defer response.Body.Close()
 
 	if response.StatusCode != 200 {
-		return nil, errors.New("Bad Request StatusCode =/= 200")
+		eror := fmt.Sprintf("POST: Bad Request StatusCode = %d", response.StatusCode)
+		return nil, errors.New(eror)
 	}
 
 	byteValue, _ := ioutil.ReadAll(response.Body)
@@ -37,7 +38,8 @@ func SendGET(url string) (*[]byte, error) {
 	defer response.Body.Close()
 
 	if response.StatusCode != 200 {
-		return nil, errors.New("Bad Request StatusCode =/= 200")
+		eror := fmt.Sprintf("GET: Bad Request StatusCode = %d", response.StatusCode)
+		return nil, errors.New(eror)
 	}
 
 	byteValue, _ := ioutil.ReadAll(response.Body)
