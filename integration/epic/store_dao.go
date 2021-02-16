@@ -14,7 +14,9 @@ func checkFreeGame(freeGameobject FreeGame) (string, int) {
 	for i := 0; i < len(freeGameobject.GetAllElements()); i++ {
 		if len(freeGameobject.GetPromotionalOffers(i)) != 0 {
 			if freeGameobject.GetPromotianlOfferStartDate(i).Before(now) || freeGameobject.GetPromotianlOfferEndDate(i).After(now) {
-				return freeGameobject.GetElementTitle(i), i
+				if freeGameobject.GetPrice(i) == 0 {
+					return freeGameobject.GetElementTitle(i), i
+				}
 			}
 		}
 	}

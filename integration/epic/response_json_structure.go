@@ -86,22 +86,26 @@ type Promotion struct {
 
 //Element export
 type Element struct {
-	Title            string            `json:"title"`
-	ID               string            `json:"id"`
-	Namespace        string            `json:"namespace"`
-	Description      string            `json:"description"`
-	EffectiveDate    time.Time         `json:"effectiveDate"`
-	KeyImages        []KeyImage        `json:"keyImages"`
-	Seller           Seller            `json:"seller"`
-	ProductSlug      string            `json:"productSlug"`
-	URLSlug          string            `json:"urlSlug"`
-	URL              interface{}       `json:"url"`
-	Items            []Item            `json:"items"`
-	CustomAttributes []CustomAttribute `json:"customAttributes"`
-	Categories       []Category        `json:"categories"`
-	Tags             []interface{}     `json:"tags"`
-	Price            Price             `json:"price"`
-	Promotions       Promotion         `json:"promotions"`
+	Title                string            `json:"title"`
+	ID                   string            `json:"id"`
+	Namespace            string            `json:"namespace"`
+	Description          string            `json:"description"`
+	EffectiveDate        time.Time         `json:"effectiveDate"`
+	OfferType            string            `json:"offerType"`
+	ExpiryDate           interface{}       `json:"expiryDate"`
+	Status               string            `json:"status"`
+	IsCodeRedemptionOnly bool              `json:"isCodeRedemptionOnly"`
+	KeyImages            []KeyImage        `json:"keyImages"`
+	Seller               Seller            `json:"seller"`
+	ProductSlug          string            `json:"productSlug"`
+	URLSlug              string            `json:"urlSlug"`
+	URL                  interface{}       `json:"url"`
+	Items                []Item            `json:"items"`
+	CustomAttributes     []CustomAttribute `json:"customAttributes"`
+	Categories           []Category        `json:"categories"`
+	Tags                 []interface{}     `json:"tags"`
+	Price                Price             `json:"price"`
+	Promotions           Promotion         `json:"promotions"`
 }
 
 //SearchStore export
@@ -167,4 +171,9 @@ func (f FreeGame) GetPromotianlOfferStartDate(i int) time.Time {
 //GetPromotianlOfferEndDate export
 func (f FreeGame) GetPromotianlOfferEndDate(i int) time.Time {
 	return f.Data.Catalog.SearchStore.Elements[i].Promotions.PromotionalOffers[0].EndDate
+}
+
+//GetPrice export
+func (f FreeGame) GetPrice(i int) int {
+	return f.Data.Catalog.SearchStore.Elements[i].Price.TotalPrice.DiscountPrice
 }

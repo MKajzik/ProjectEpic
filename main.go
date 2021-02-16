@@ -1,6 +1,8 @@
 package main
 
-import "kazik/free/game/integration/epic"
+import (
+	"kazik/free/game/integration/epic"
+)
 
 func main() {
 
