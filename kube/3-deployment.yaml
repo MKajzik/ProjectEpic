@@ -18,5 +18,16 @@ spec:
       - name: epic
         image: registry.togi.cloud/epic:latest
         imagePullPolicy: Always
+        env:
+          - name: SLACK_URL
+            valueFrom:
+              secretKeyRef:
+                name: app-tier-secret
+                key: slack_url
+          - name: EPIC_URL
+            valueFrom:
+              secretKeyRef:
+                name: app-tier-secret
+                key: epic_url
         ports:
         - containerPort: 5000
