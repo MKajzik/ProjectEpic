@@ -5,6 +5,7 @@
 *.so
 *.dylib
 epic
+game
 
 # Test binary, built with `go test -c`
 *.test
