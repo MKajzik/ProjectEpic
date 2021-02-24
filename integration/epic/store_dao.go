@@ -8,19 +8,28 @@ import (
 	"time"
 )
 
-func checkFreeGame(freeGameobject FreeGame) (string, int) {
+func checkFreeGame(freeGameobject FreeGame) ([]string, []int) {
 
+	var games []string
+	var num []int
 	now := time.Now()
+
 	for i := 0; i < len(freeGameobject.GetAllElements()); i++ {
 		if len(freeGameobject.GetPromotionalOffers(i)) != 0 {
 			if freeGameobject.GetPromotianlOfferStartDate(i).Before(now) || freeGameobject.GetPromotianlOfferEndDate(i).After(now) {
 				if freeGameobject.GetPrice(i) == 0 {
-					return freeGameobject.GetElementTitle(i), i
+					games = append(games, freeGameobject.GetElementTitle(i))
+					num = append(num, i)
 				}
 			}
 		}
 	}
-	return "Brak darmowej gry", 400
+
+	if games == nil && num == nil {
+		num = append(num, 400)
+	}
+
+	return games, num
 }
 
 func getEpicFreeGame(url string) (FreeGame, error) {
@@ -45,82 +54,34 @@ func prepareJSON(freeGameObject FreeGame) ([]byte, string, error) {
 
 	text, num := checkFreeGame(freeGameObject)
 
-	if num == 400 {
-		textBuilder := slack.NewTextBuilder()
-		text1 := textBuilder.
-			SetType("mrkdwn").
-			SetText("Dzisiaj nie ma zadnej gry do odebrania. Sorki :P!").
-			Build()
-
-		blockBuilder := slack.NewBlockBuilder()
-		block1 := blockBuilder.
-			SetType("section").
-			SetText(text1).
-			Build()
-
-		msg.AddItem(block1)
+	if num[0] == 400 {
+		block := slack.CreateTextBlock("Dzisiaj nie ma zadnej gry do odebrania. Sorki :P!")
+		msg.AddItem(block)
 
 	} else {
-		image := searchForImage(num, freeGameObject)
-		url, err := prepareURL(text)
-		if err != nil {
-			url = "https://www.epicgames.com/store/pl/free-games"
+
+		var images []string
+		var urls []string
+
+		for i := range text {
+			image := searchForImage(num[i], freeGameObject)
+			url, err := prepareURL(text[i])
+			if err != nil {
+				url = "https://www.epicgames.com/store/pl/free-games"
+			}
+			images = append(images, image)
+			urls = append(urls, url)
 		}
-		textBuilder := slack.NewTextBuilder()
-		accessoryBuilder := slack.NewAccessoryBuilder()
-		blockBuilder := slack.NewBlockBuilder()
 
-		block1 := blockBuilder.
-			SetType("section").
-			SetText(textBuilder.
-				SetType("mrkdwn").
-				SetText("Siema, dzisiaj Epic zaserwował nam nową darmową grę. Poniżej sprawdźcie ją i nie zapomnijcie jej *ODEBRAĆ*!").
-				Build()).
-			Build()
-
-		textBuilder.Reset()
-		accessoryBuilder.Reset()
-		blockBuilder.Reset()
-
-		block2 := blockBuilder.
-			SetType("section").
-			SetText(textBuilder.
-				SetType("mrkdwn").
-				SetText(text).
-				Build()).
-			SetAccessory(accessoryBuilder.
-				SetType("image").
-				SetImageURL(image).
-				SetAltText(text).
-				Build()).
-			Build()
-
-		textBuilder.Reset()
-		accessoryBuilder.Reset()
-		blockBuilder.Reset()
-
-		block3 := blockBuilder.
-			SetType("section").
-			SetText(textBuilder.
-				SetType("mrkdwn").
-				SetText("Odbierz mnie pliska. *NO PLISKA*").
-				Build()).
-			SetAccessory(accessoryBuilder.
-				SetType("button").
-				SetText(textBuilder.
-					SetType("plain_text").
-					SetText("ODBIERZ").
-					SetEmoji(true).
-					Build()).
-				SetValue("click_me_123").
-				SetURL(url).
-				SetActionID("button-action").
-				Build()).
-			Build()
-
+		block1 := slack.CreateTextBlock("Siema, dzisiaj Epic zaserwował nam nową dawkę darmowych gier. Poniżej sprawdźcie ją i nie zapomnijcie jej *ODEBRAĆ*!")
 		msg.AddItem(block1)
-		msg.AddItem(block2)
-		msg.AddItem(block3)
+
+		for i := range text {
+			block1 := slack.CreateImageBlock(text[i], images[i])
+			block2 := slack.CreateButtonBlock("Aby pobrać grę powyżej kliknij przycisk *ODBIERZ*", "ODBIERZ", urls[i])
+			msg.AddItem(block1)
+			msg.AddItem(block2)
+		}
 	}
 
 	requestBody, err := json.Marshal(msg)
@@ -128,7 +89,7 @@ func prepareJSON(freeGameObject FreeGame) ([]byte, string, error) {
 		return nil, "error", err
 	}
 
-	return requestBody, text, nil
+	return requestBody, text[0], nil
 }
 
 func searchForImage(num int, freeGameobject FreeGame) string {
