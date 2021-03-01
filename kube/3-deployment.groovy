@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: epic
-        image: registry.togi.cloud/epic:latest
+        image: registry.togi.cloud/epic:${buildNumber}
         imagePullPolicy: Always
         env:
           - name: SLACK_URL
