@@ -133,6 +133,11 @@ func (f FreeGame) GetElementTitle(i int) string {
 	return f.Data.Catalog.SearchStore.Elements[i].Title
 }
 
+//GetElementStatus export
+func (f FreeGame) GetElementStatus(i int) string {
+	return f.Data.Catalog.SearchStore.Elements[i].Status
+}
+
 //GetProductSlug export
 func (f FreeGame) GetProductSlug(i int) string {
 	return f.Data.Catalog.SearchStore.Elements[i].ProductSlug
