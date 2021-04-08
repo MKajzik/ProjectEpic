@@ -20,6 +20,25 @@ var _ = Describe("Testing package epic", func() {
 
 			//Expect(actual.GetElementStatus(0)).To(Equal("ACTIVE"))
 
+			/*
+							id := func(element interface{}) string {
+				     		   return string(element.(string)[0])
+				    		}
+
+							Expect(actual).To(MatchFields(IgnoreExtras, Fields{
+								"Data": MatchFields(IgnoreExtras, Fields{
+									"Catalog": MatchFields(IgnoreExtras, Fields{
+										"SearchStore": MatchFields(IgnoreExtras, Fields{
+											"Elements" MatchElements(id, IgnoreExtras, Elements{
+
+											})
+										})
+									})
+								})
+							}))
+
+			*/
+
 			Expect(actual).NotTo(BeNil())
 			Expect(err).To(BeNil())
 		})
@@ -31,6 +50,18 @@ var _ = Describe("Testing package epic", func() {
 
 			Expect(actual).NotTo(BeNil())
 			Expect(num).NotTo(BeNil())
+		})
+	})
+
+	Context("Function prepareJSON should take the FreeGame object and convert it to JSON structure", func() {
+		It("Should return JSON for requestBody, name of a game and nil error", func() {
+			freegame, _ := getEpicFreeGame("https://store-site-backend-static.ak.epicgames.com/freeGamesPromotions?locale=pl&country=PL&allowCountries=PL")
+			actual, name, err := prepareJSON(freegame)
+
+			Expect(actual).NotTo(BeNil())
+			Expect(name).NotTo(BeNil())
+			Expect(err).To(BeNil())
+
 		})
 	})
 })
