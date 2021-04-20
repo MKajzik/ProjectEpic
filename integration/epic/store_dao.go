@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"kazik/free/game/integration/slack"
 	"kazik/free/game/rest"
+	"sort"
 	"time"
 )
 
@@ -48,11 +49,12 @@ func getEpicFreeGame(url string) (FreeGame, error) {
 	return freeGameobject, nil
 }
 
-func prepareJSON(freeGameObject FreeGame) ([]byte, string, error) {
+func prepareJSON(freeGameObject FreeGame) ([]byte, []string, error) {
 
 	msg := slack.NewRequest()
 
 	text, num := checkFreeGame(freeGameObject)
+	sort.Strings(text)
 
 	if num[0] == 400 {
 		block := slack.CreateTextBlock("Dzisiaj nie ma zadnej gry do odebrania. Sorki :P!")
@@ -86,10 +88,10 @@ func prepareJSON(freeGameObject FreeGame) ([]byte, string, error) {
 
 	requestBody, err := json.Marshal(msg)
 	if err != nil {
-		return nil, "error", err
+		return nil, []string{"error"}, err
 	}
 
-	return requestBody, text[0], nil
+	return requestBody, text, nil
 }
 
 func searchForImage(num int, freeGameobject FreeGame) string {

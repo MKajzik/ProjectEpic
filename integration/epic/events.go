@@ -8,7 +8,7 @@ import (
 
 //CheckDailyGame export
 func CheckDailyGame(epicURL string, webhookURL string, done chan bool) {
-	var previousGame string
+	var previousGame []string
 
 	for {
 		freeGame, err := getEpicFreeGame(epicURL)
@@ -23,9 +23,28 @@ func CheckDailyGame(epicURL string, webhookURL string, done chan bool) {
 			time.Sleep(30 * time.Second)
 			continue
 		}
-		if previousGame != actualGame {
+		if len(previousGame) == 0 {
 			slack.SendSlackMessage(webhookURL, epicJSON)
 			previousGame = actualGame
+
+		} else {
+			if len(actualGame) < len(previousGame) {
+				for i := range actualGame {
+					if actualGame[i] != previousGame[i] {
+						slack.SendSlackMessage(webhookURL, epicJSON)
+						previousGame = actualGame
+						break
+					}
+				}
+			} else {
+				for i := range previousGame {
+					if previousGame[i] != actualGame[i] {
+						slack.SendSlackMessage(webhookURL, epicJSON)
+						previousGame = actualGame
+						break
+					}
+				}
+			}
 		}
 		time.Sleep(30 * time.Minute)
 	}
